@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .recipe-details {
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        a.button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        a.button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ object.title }}</h2>
+    <div class="details">
+        <img src="{{ object.pic.url }}" width="400" height="auto" alt="{{ object.title }}" />
+        <p><strong>Name:</strong> {{ object.title }}</p>
+        <p><strong>Description:</strong> {{ object.description }}</p>
+        <p><strong>Ingredients:</strong></p>
+        <ul>
+            {% for ingredient in object.ingredients.all %}
+                <li>{{ ingredient.name }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Preparation:</strong> {{ object.preparation }}</p>
+        <p><strong>Cooking Time:</strong> {{ object.cooking_time }} minutes</p>
+        <p><strong>Level:</strong> {{ object.calculate_difficulty }}</p>
+    </div>
+    <a href="{% url 'recipes:list' %}" class="button">Back to Recipe List</a>
+</body>
+</html>

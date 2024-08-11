@@ -19,3 +19,7 @@ class RecipeTestCase(TestCase):
         ingredients = recipe.ingredients.all()
         self.assertEqual(ingredients.count(), 1)
         self.assertEqual(ingredients.first().name, "Sugar")
+
+    def test_get_absolute_url(self):
+        recipe = Recipe.objects.get(title="Cake")
+        self.assertEqual(recipe.get_absolute_url(), f'/list/{recipe.id}/')
