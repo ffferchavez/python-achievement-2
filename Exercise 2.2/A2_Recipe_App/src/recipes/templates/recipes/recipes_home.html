@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,123 +7,31 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: url("{% static 'recipes/images/recipes-bg-2.jpg' %}") no-repeat center center/cover;
-            color: #fff;
+            text-align: center;
         }
         .container {
-            width: 90%;
-            max-width: 1080px;
-            text-align: center;
-            color: #363636;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
+            background: #fff;
             border-radius: 8px;
-        }
-        .welcome-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            flex-wrap: wrap; /* Allows content to wrap on smaller screens */
-        }
-        .welcome-box > div {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 50px; /* Reduced padding for better small-screen fit */
-            min-width: 300px; /* Prevents divs from becoming too narrow */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            color: #333;
         }
         p {
-            font-size: 1.2em;
-        }
-        a.button {
-            display: inline-block;
-            padding: 15px 25px; /* Adjusted padding for better button fit on small screens */
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        a.button:hover {
-            background-color: #45a049;
-        }
-
-        /* Media Queries for responsiveness */
-        @media (max-width: 768px) {
-            .welcome-box {
-                flex-direction: column; /* Stack text and button vertically */
-            }
-            .welcome-box > div {
-                padding: 20px; /* Reduce padding on smaller screens */
-            }
-            h1 {
-                font-size: 2em;
-            }
-            p {
-                font-size: 1em;
-            }
-            a.button {
-                padding: 10px 20px; /* Smaller padding on mobile */
-                font-size: 1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            p {
-                font-size: 0.9em;
-            }
-            .welcome-box > div {
-                padding: 15px; /* Further reduced padding for very small screens */
-            }
-            a.button {
-                padding: 10px 15px; /* Even smaller button padding */
-                font-size: 0.9em;
-            }
-        }
-
-        /* Ensure the background image scales properly on very large screens */
-        @media (min-width: 1200px) {
-            body {
-                background-size: cover; /* Ensures image covers the entire screen */
-                background-position: center; /* Keeps the image centered */
-            }
-        }
-
-        /* Ensure the background image adapts well on very small screens */
-        @media (max-width: 768px) {
-            body {
-                background-size: contain; /* Makes sure the entire image is visible */
-                background-position: top; /* Adjust position if necessary */
-            }
+            color: #666;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="welcome-box">
-            <div>
-                <h1>Welcome to Recipe App</h1>
-                <p>Your one-stop solution for managing and exploring recipes.</p>
-            </div>
-            <div style="text-align: center;">
-                <a href="{% url 'recipes:list' %}" class="button">Go To Your Recipes</a>
-            </div>
-        </div>
+        <h1>Welcome to Recipe App</h1>
+        <p>Your one-stop solution for managing and exploring recipes.</p>
     </div>
 </body>
 </html>
